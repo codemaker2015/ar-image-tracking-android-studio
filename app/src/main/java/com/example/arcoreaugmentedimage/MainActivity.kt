@@ -60,10 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeSceneView() {
-
-//        makeInfoView()
         arSceneView.scene.addOnUpdateListener(this::onUpdateFrame)
-
     }
 
 
@@ -78,8 +75,6 @@ class MainActivity : AppCompatActivity() {
                     // Check camera image matches our reference image
 
                     if (augmentedImage.name == "marker") {
-                        //createRenderable(augmentedImage)
-                        //takePhoto(augmentedImage)
                         ModelRenderable.builder()
                             .setSource(this, R.raw.cube)
                             .build()
@@ -111,12 +106,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAugmentedImageDb(config: Config): Boolean {
         val augmentedImageDatabase: AugmentedImageDatabase
-
         val augmentedImageBitmap = loadAugmentedImage() ?: return false
-
         augmentedImageDatabase = AugmentedImageDatabase(session)
         augmentedImageDatabase.addImage("marker", augmentedImageBitmap)
-
         config.augmentedImageDatabase = augmentedImageDatabase
         return true
     }

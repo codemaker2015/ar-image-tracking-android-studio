@@ -41,7 +41,6 @@ dependencies {
 
 }
 
-apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.ar.sceneform.plugin'
 
 sceneform.asset('sampledata/cube.fbx',

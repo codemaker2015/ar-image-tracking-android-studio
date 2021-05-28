@@ -29,16 +29,12 @@ class MainActivity : AppCompatActivity() {
     private var session: Session? = null
     private var shouldConfigureSession = false
     private val messageSnackbarHelper = SnackbarHelper()
-    internal lateinit var dataView: CompletableFuture<ViewRenderable>
-    var sensorsMap = HashMap<String, ViewRenderable>()
-    val degree : Char = '\u00B0'
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initializeSceneView()
     }
-
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, results: IntArray) {
         if (!CameraPermissionHelper.hasCameraPermission(this)) {
